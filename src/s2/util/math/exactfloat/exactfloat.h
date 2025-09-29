@@ -321,9 +321,6 @@ class ExactFloat {
   /////////////////////////////////////////////////////////////////////////////
   // Operators
 
-  // Assignment operator.
-  ExactFloat& operator=(const ExactFloat& b);
-
   // Unary plus.
   ExactFloat operator+() const { return *this; }
 
