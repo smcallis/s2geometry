@@ -18,7 +18,7 @@ cc_library(
         "//s2/base:logging",
         "@abseil-cpp//absl/container:inlined_vector",
         "@abseil-cpp//absl/log:absl_check",
-        "@abseil-cpp//absl/log:log",
+        "@abseil-cpp//absl/log:absl_log",
         "@abseil-cpp//absl/numeric:bits",
         "@abseil-cpp//absl/numeric:int128",
         "@abseil-cpp//absl/random:random",
