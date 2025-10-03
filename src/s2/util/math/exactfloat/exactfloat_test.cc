@@ -446,6 +446,10 @@ TEST_F(ExactFloatTest, Constructors) {
   // Copy constructor.
   ExactFloat e = c;
   ExpectSameWithPrec(-125, 7, e);
+
+  // Ensure that construction with INT_MIN works properly.
+  ExactFloat f = INT_MIN;
+  ExpectSame(INT_MIN, f);
 }
 
 TEST_F(ExactFloatTest, Constants) {
