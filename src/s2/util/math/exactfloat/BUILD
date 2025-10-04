@@ -4,7 +4,12 @@ cc_library(
     name = "bignum",
     srcs = ["bignum.cc"],
     hdrs = ["bignum.h"],
-    visibility = ["//visibility:private"]
+    visibility = ["//visibility:private"],
+    deps = [
+        "@abseil-cpp//absl/algorithm:container",
+        "@abseil-cpp//absl/container:inlined_vector",
+        "@abseil-cpp//absl/log:absl_check",
+    ],
 )
 
 cc_library(
@@ -13,17 +18,18 @@ cc_library(
     hdrs = ["exactfloat.h"],
     deps = [
         ":bignum",
-        "//s2/base:types",
-        "//s2/base:port",
         "//s2/base:logging",
-        "@abseil-cpp//absl/container:inlined_vector",
-        "@abseil-cpp//absl/log:absl_check",
-        "@abseil-cpp//absl/log:absl_log",
-        "@abseil-cpp//absl/numeric:bits",
-        "@abseil-cpp//absl/numeric:int128",
-        "@abseil-cpp//absl/random:random",
-        "@abseil-cpp//absl/strings:ascii",
-        "@abseil-cpp//absl/strings:str_cat",
-        "@abseil-cpp//absl/strings:str_format",
+        "//s2/base:port",
+    ],
+)
+
+cc_test(
+    name = "bignum_test",
+    srcs = ["bignum_test.cc"],
+    deps = [
+        ":bignum",
+        "@abseil-cpp//absl/random:bit_gen_ref",
+        "@boringssl//:crypto",
+        "@googletest//:gtest_main",
     ],
 )
