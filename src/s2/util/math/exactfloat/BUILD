@@ -33,3 +33,14 @@ cc_test(
         "@googletest//:gtest_main",
     ],
 )
+
+cc_test(
+    name = "exactfloat_test",
+    srcs = ["exactfloat_test.cc"],
+    deps = [
+        ":exactfloat",
+        "//s2/util/math:vector",
+        "@abseil-cpp//absl/random:random",
+        "@googletest//:gtest_main",
+    ],
+)
